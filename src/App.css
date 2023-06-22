@@ -1,0 +1,100 @@
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-task {
+  width: 450px;
+}
+
+.task-form {
+  /* Task form ile ilgili stil tanımlamaları */
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form__label {
+  /* Label elementi ile ilgili stil tanımlamaları */
+  margin: 10px 0;
+}
+
+.task-form__input {
+  /* Input elementi ile ilgili stil tanımlamaları */
+}
+
+.task-form__textarea {
+  /* Textarea elementi ile ilgili stil tanımlamaları */
+  margin-bottom: 10px;
+}
+
+.task-form__field {
+  border: 2px solid #0c9d80;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.task-form__button {
+  /* Button elementi ile ilgili stil tanımlamaları */
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #2bb498;
+  color: white;
+  font-size: 20px;
+}
+
+.task-form__button:hover {
+  transition-duration: 0.3s;
+  background-color: #0c9d80; 
+}
+
+.list-task-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.show-task-container {
+  border: 2px solid #0c9d80;
+  padding: 20px;
+  width: 350px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.show-task__btn {
+  padding: 8px;
+  font-size: 1em;
+  margin: 0 10px 0 10px;
+  border: none;
+  border-radius: 7px;
+  color: white;
+}
+
+.show-task__btn--delete {
+  width: 70px;
+  background-color: red;
+}
+.show-task__btn--delete:hover {
+  transition-duration: 0.3s;
+  background-color: #cd1b1b;
+}
+
+.show-task__btn--edit {
+  width: 50px;
+  background-color: #4e88e4;
+}
+.show-task__btn--edit:hover {
+  transition-duration: 0.3s;
+  background-color: #466eae;
+}
+
+.show-task__header {
+  margin-bottom: 5px;
+}
