@@ -5,6 +5,12 @@ import ListTasks from "./components/ListTasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const deleteTaskById = (id) => {
+    const afterDeletingTasks = tasks.filter((task) => {
+      return task.id !== id;
+    });
+    setTasks(afterDeletingTasks);
+  };
 
   const usedIds = [];
   const addTask = (title, taskDescription) => {
@@ -31,7 +37,7 @@ function App() {
     <div className="App">
       <CreateTask onCreate={addTask} />
       <h1>Tasks</h1>
-      <ListTasks tasks={tasks} />
+      <ListTasks tasks={tasks} onDelete={deleteTaskById} />
     </div>
   );
 }

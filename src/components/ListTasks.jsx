@@ -1,10 +1,10 @@
 import ShowTask from "./ShowTask";
 
-function ListTasks({ tasks }) {
+function ListTasks({ tasks, onDelete }) {
   return (
     <div className="list-task-container">
       {tasks.map((task, i) => {
-        return <ShowTask task={task} key={i} />;
+        return <ShowTask task={task} key={i} onDelete={onDelete} />;
       })}
     </div>
   );
