@@ -9,6 +9,10 @@
   width: 450px;
 }
 
+.edit-task {
+  width: 100%;
+}
+
 .task-form {
   /* Task form ile ilgili stil tanımlamaları */
   display: flex;
@@ -18,10 +22,6 @@
 .task-form__label {
   /* Label elementi ile ilgili stil tanımlamaları */
   margin: 10px 0;
-}
-
-.task-form__input {
-  /* Input elementi ile ilgili stil tanımlamaları */
 }
 
 .task-form__textarea {
@@ -38,7 +38,7 @@
 .task-form__button {
   /* Button elementi ile ilgili stil tanımlamaları */
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 10px;
   background-color: #2bb498;
   color: white;
@@ -47,7 +47,15 @@
 
 .task-form__button:hover {
   transition-duration: 0.3s;
-  background-color: #0c9d80; 
+  background-color: #0c9d80;
+}
+
+.task-form__button--update {
+  background-color: #892be2d5;
+}
+
+.task-form__button--update:hover {
+  background-color: #8f2beb;
 }
 
 .list-task-container {
@@ -57,6 +65,7 @@
 }
 
 .show-task-container {
+  background-color: #f7fffd;
   border: 2px solid #0c9d80;
   padding: 20px;
   width: 350px;
@@ -78,7 +87,7 @@
 }
 
 .show-task__btn--delete {
-  width: 70px;
+  width: 85px;
   background-color: red;
 }
 .show-task__btn--delete:hover {
@@ -87,7 +96,7 @@
 }
 
 .show-task__btn--edit {
-  width: 50px;
+  width: 60px;
   background-color: #4e88e4;
 }
 .show-task__btn--edit:hover {
@@ -98,3 +107,4 @@
 .show-task__header {
   margin-bottom: 5px;
 }
+

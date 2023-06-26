@@ -1,8 +1,10 @@
 import { useState } from "react";
 
-function CreateTask({ onCreate }) {
-  const [title, setTitle] = useState("");
-  const [taskDescription, setTaskDescription] = useState("");
+function CreateTask({ onCreate, task, taskFormEdit, onUpdate }) {
+  const [title, setTitle] = useState(task ? task.title : "");
+  const [taskDescription, setTaskDescription] = useState(
+    task ? task.taskDescription : ""
+  );
 
   const handleChange = (e) => {
     setTitle(e.target.value);
@@ -14,38 +16,79 @@ function CreateTask({ onCreate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreate(title, taskDescription);
+    if (taskFormEdit) {
+      onUpdate(task.id, title, taskDescription);
+    } else {
+      onCreate(title, taskDescription);
+    }
     setTitle("");
     setTaskDescription("");
   };
 
   return (
-    <div className="create-task">
-      <h3 className="create-task__heading">Please Add a Task</h3>
-      <form className="task-form">
-        <label className="task-form__label" htmlFor="title">
-          Title
-        </label>
-        <input
-          value={title}
-          onChange={handleChange}
-          className="task-form__input task-form__field"
-          type="text"
-        />
-        <label className="task-form__label" htmlFor="task">
-          Enter a Task
-        </label>
-        <textarea
-          value={taskDescription}
-          onChange={handleTaskDescription}
-          className="task-form__textarea task-form__field"
-          cols="30"
-          rows="5"
-        ></textarea>
-        <button className="task-form__button" onClick={handleSubmit}>
-          Create
-        </button>
-      </form>
+    <div>
+      {taskFormEdit ? (
+        <div className="edit-task">
+          <h3 className="create-task__heading">Please Edit the Task</h3>
+          <form className="task-form">
+            <label className="task-form__label" htmlFor="title">
+              Edit Title
+            </label>
+            <input
+              value={title}
+              onChange={handleChange}
+              className="task-form__input task-form__field"
+              type="text"
+            />
+            <label className="task-form__label" htmlFor="task">
+              Edit the Task
+            </label>
+            <textarea
+              value={taskDescription}
+              onChange={handleTaskDescription}
+              className="task-form__textarea task-form__field"
+              cols="30"
+              rows="5"
+            ></textarea>
+            <button
+              className="task-form__button task-form__button--update"
+              onClick={handleSubmit}
+            >
+              Update
+            </button>
+          </form>
+        </div>
+      ) : (
+        <div>
+          <div className="create-task">
+            <h3 className="create-task__heading">Please Add a Task</h3>
+            <form className="task-form">
+              <label className="task-form__label" htmlFor="title">
+                Title
+              </label>
+              <input
+                value={title}
+                onChange={handleChange}
+                className="task-form__input task-form__field"
+                type="text"
+              />
+              <label className="task-form__label" htmlFor="task">
+                Enter a Task
+              </label>
+              <textarea
+                value={taskDescription}
+                onChange={handleTaskDescription}
+                className="task-form__textarea task-form__field"
+                cols="30"
+                rows="5"
+              ></textarea>
+              <button className="task-form__button" onClick={handleSubmit}>
+                Create
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
