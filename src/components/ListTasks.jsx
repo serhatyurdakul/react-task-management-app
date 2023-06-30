@@ -1,17 +1,12 @@
+import TaskContext from "../context/TaskContext";
 import ShowTask from "./ShowTask";
-
-function ListTasks({ tasks, onDelete, onUpdate }) {
+import { useContext } from "react";
+function ListTasks() {
+  const { tasks } = useContext(TaskContext);
   return (
     <div className="list-task-container">
       {tasks.map((task, i) => {
-        return (
-          <ShowTask
-            task={task}
-            key={i}
-            onDelete={onDelete}
-            onUpdate={onUpdate}
-          />
-        );
+        return <ShowTask task={task} key={i} />;
       })}
     </div>
   );
